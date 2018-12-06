@@ -29,9 +29,9 @@ Step 1. Enter API Key
 Step 2. Create and configure an Input. Click “Add” to save the new input.
 Step 3. Verify Musubu Input is functional by searching the applicable index.
 
-Details
+## Details
 
-System requirements:
+### System requirements:
 
 Splunk version 6.3 or greater
 Windows, Linux or Mac OS operating system
@@ -43,11 +43,11 @@ Navigate to "Manage apps" and click "Install app from file"
 Upload the app bundle
 
 
-Troubleshooting
+### Troubleshooting
 API Key is required
 In order to use Musubu’s IP & network cyber threat profiling per IP address in Splunk, you must have a valid Musubu API “Small Plan” subscription or higher: https://musubu.io/api-pricing/
 
-Error Codes
+### Error Codes
 
 View Musubu for Splunk add-on logs at the following location:
 SPLUNK_HOME/system/var/log
@@ -56,7 +56,7 @@ Logs files related to the add-on have the following syntax: ta-musubu-for-splunk
 
 Errors pertaining to the Musubu custom command “| showipthreatdata ipaddress” will display verbosely in the web console.
 
-Release Notes
+### Release Notes
 Version 1.0.0
 December 5, 2018
 - Initial Release
@@ -71,7 +71,7 @@ COMPATIBILITY
 Products: Splunk Cloud, Splunk Enterprise
 Splunk Versions: 7.1, 7.0, 6.6, 6.5, 6.4, 6.3
 Platform: Platform Independent
-LICENSING
+### LICENSING
 Musubu API License
 SUPPORT
 Musubu Supported at support@musubu.io
