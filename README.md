@@ -8,10 +8,11 @@ Use Musubu’s unique IP & Network cyber threat scoring and profiling API right 
 * Blacklist Neighbors: The number of other IP addresses in the same subnet that have been blacklisted.
 * Blacklist Count: The number of times in the last 90 days the IP address has been blacklisted.
 
+## Musubu IP Threat Data Tooltip in Splunk 
+
 Simply add one or more data sources to the Musubu Add-on and then you will be able to mouse over each IP address to see our threat profiling data. Use it to perform faster threat detection, threat identification, response, and mitigation.
 
-## Musubu IP Threat Data Tooltip in Splunk
-
+## Custom Command => showipthreatdata 
 Leverage the “showipthreatdata” custom command within to add-on to make direct calls to the Musubu API from the Splunk search view. See example below - Musubu results for the specified IP are returned in a Tableview.
 
 *Syntax: | showipthreatdata ipaddress*
