@@ -48,17 +48,17 @@ def collect_events(helper, ew):
         with open(filename) as f:
             s = f.read()
             if old_string not in s:
-                helper.log_info("Oops! Unable to find %s in %s" %(old_string, filename))
-
-         # Safely write the changed content, if found in the file
-        with open(filename, 'w') as f:
-            helper.log_info("Writing global API Key to tooltip file: %s" % filename)
-            s = s.replace(old_string, new_string)
-            f.write(s)
-
+                helper.log_info("Oops! Unable to locate %s in %s" %(old_string, filename))
+                helper.log_info("global API Key was not written to the tooltip")
+            else:
+                # Safely write the changed content, if found in the file
+                with open(filename, 'w') as f:
+                    helper.log_info("Writing global API Key to tooltip file: %s" % filename)
+                    s = s.replace(old_string, new_string)
+                    f.write(s)
+                    
     write_api_key_to_tooltip_file('placeholder', global_api_key)
 
-    '''
     musubu_checkpoint_file = os.path.join(os.environ["SPLUNK_HOME"], 'etc', 'apps', 'TA-musubu-for-splunk', 'bin', 'musubu_checkpoint', 'musubu_checkpoint_file.txt')
     helper.log_info(musubu_checkpoint_file)
 
@@ -86,9 +86,7 @@ def collect_events(helper, ew):
 
     stream_to_splunk(musubu_checkpoint_file, r_data)
 
-    response.raise_for_status()
-
-
+    '''
     """Implement your data collection logic here"""
 
     # The following examples get the arguments of this input.
@@ -154,7 +152,7 @@ def collect_events(helper, ew):
 
     # To create a splunk event
     helper.new_event(data, time=None, host=None, index=None, source=None, sourcetype=None, done=True, unbroken=True)
-    '''
+
 
     # The following example writes a random number as an event. (Multi Instance Mode)
     # Use this code template by default.
@@ -172,3 +170,4 @@ def collect_events(helper, ew):
         data = str(random.randint(0,100))
         event = helper.new_event(source=input_type, index=helper.get_output_index(stanza_name), sourcetype=helper.get_sourcetype(stanza_name), data=data)
         ew.write_event(event)
+    '''

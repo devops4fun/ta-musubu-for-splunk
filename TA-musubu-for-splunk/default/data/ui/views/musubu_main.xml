@@ -1,47 +1,22 @@
 <form stylesheet="musubu_tooltip.css" script="musubu_tooltip.js">
   <label>Musubu</label>
-  <description>IP Threat Intelligence Solution</description>
-  <!--
-  <row>
-    <panel>
-      <html>
-       <div>
-          <h2>TABLE: Enable drilldown for table cells, disable redirect using the <tt>preventDefault</tt>
-          method, and display table-click info in the console:</h2>
-          <div id="musubu_tbl_2"/>
-
-      </div>
-    </html>
-    </panel>
-  </row> -->
   <fieldset submitButton="true">
     <input type="text" token="musubu_ip_lookup">
-      <label></label>
+      <label>Enter IP Lookup Definition</label>
+    </input>
+    <input type="dropdown" token="musubu_ip_lookup">
+      <label>Example Lookup</label>
+      <choice value="ip_test_data">Example IP Lookup Data</choice>
+      <choice value="-">-</choice>
+      <default>ip_test_data</default>
     </input>
   </fieldset>
   <row>
     <panel>
-      <html>
-        <style>
-          #musubu_textinput_ip
-          {
-          width:250px
-          }
-
-        </style>
-        <div id="musubu_threat_data_heading"/>
-        <div id="musubu_textinput_ip"/>
-        <div id="musubu_api_data"/>
-      </html>
-    </panel>
-  </row>
-  <row>
-    <panel>
       <table id="musubu_tbl">
-        <title>ip_test_data</title>
+        <title>Musubu IP Threat Data Tooltip in Splunk</title>
         <search>
-          <query>| inputlookup ip_test_data</query>
-          <!--index="musubu" sourcetype="csv" | table _time ip first last age state street zip -->
+          <query>| inputlookup $musubu_ip_lookup$</query>
           <earliest>-24h@h</earliest>
           <latest>now</latest>
         </search>

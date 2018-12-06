@@ -87,4 +87,4 @@ class ModInputmusubu_api_data(modinput_wrapper.base_modinput.BaseModInput):
 
 if __name__ == "__main__":
     exitcode = ModInputmusubu_api_data().run(sys.argv)
-    sys.exit(exitcode)
+sys.exit(exitcode)

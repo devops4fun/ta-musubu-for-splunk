@@ -1,15 +1,10 @@
-[props/musubu_data]
-owner = admin
-version = 7.2.1
-modtime = 1543524736.718705000
-
 [ta_musubu_for_splunk_settings/additional_parameters]
 version = 7.2.1
 modtime = 1543898761.306482000
 
 [views/musubu_main]
 version = 7.2.1
-modtime = 1543952794.191746000
+modtime = 1543982849.317074000
 
 [props/source%3A%3A...ta-musubu-for-splunk%2A.log%2A]
 owner = admin
@@ -21,17 +16,7 @@ owner = admin
 version = 7.2.1
 modtime = 1543882445.770611000
 
-[inputs/musubu_api_data%3A%2F%2Fmusubu_demo_input]
-owner = admin
-version = 7.2.1
-modtime = 1543909760.595418000
-
 [props/musubu_api_data]
 owner = admin
 version = 7.2.1
-modtime = 1543901252.523263000
-
-[inputs/musubu_api_data%3A%2F%2Fmusubu_data]
-owner = admin
-version = 7.2.1
-modtime = 1543954746.814772000
+modtime = 1544008669.098235000

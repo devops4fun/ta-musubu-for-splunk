@@ -1,4 +1,4 @@
-<nav search_view="search" color="#65A637">
+<nav>
 <view name="musubu_main" default="true" />
 <view name="inputs"/>
 <view name="configuration"/>
