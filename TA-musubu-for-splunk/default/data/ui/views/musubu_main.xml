@@ -1,29 +1,50 @@
-<form stylesheet="musubu_tooltip.css" script="musubu_tooltip.js">
+<form theme="light">
   <label>Musubu</label>
-  <fieldset submitButton="true">
-    <input type="text" token="musubu_ip_lookup">
-      <label>Enter IP Lookup Definition</label>
-    </input>
-    <input type="dropdown" token="musubu_ip_lookup">
-      <label>Example Lookup</label>
-      <choice value="ip_test_data">Example IP Lookup Data</choice>
-      <choice value="-">-</choice>
-      <default>ip_test_data</default>
-    </input>
-  </fieldset>
+  <description></description>
   <row>
     <panel>
-      <table id="musubu_tbl">
-        <title>Musubu IP Threat Data Tooltip in Splunk</title>
-        <search>
-          <query>| inputlookup $musubu_ip_lookup$</query>
-          <earliest>-24h@h</earliest>
-          <latest>now</latest>
-        </search>
-        <option name="count">10</option>
-        <option name="drilldown">none</option>
-        <option name="refresh.display">progressbar</option>
-      </table>
+      <html>
+        <h2>Use Musubu’s unique IP and Network cyber threat scoring and profiling API right in your Splunk instance to determine the following for each IP</h2>
+<ul>
+  <li>
+            <strong>Cyber Threat Score</strong>: A 0-100 rating of how much of a cyber threat the IP may be based on the output of our analytics and algorithms.</li>
+  <li>
+            <strong>Cyber Threat Classification</strong>: High-Medium-Nuisance-Low rating of an IPs cyber threat potential for quick identification.</li>
+  <li>
+            <strong>Blacklist Class</strong>: The predominant cyber threat vector seen as associated with the IP address (e.g. Phishing, Ransomware, TOR, etc.).</li>
+  <li>
+            <strong>Blacklist Count</strong>: The number of major IP blacklisting services that have blacklisted the IP address.</li>
+  <li>
+            <strong>Blacklist Neighbors</strong>: The number of other IP addresses in the same subnet that have been blacklisted.</li>
+  <li>
+            <strong>Blacklist Count</strong>: The number of times in the last 90 days the IP address has been blacklisted.</li>
+</ul>
+<hr/>
+        <h1>Getting Started:</h1>
+        <p>Below are the steps required to begin using the app.</p>
+        <ul>
+          <li>
+            <strong>Step 1.</strong> Enter your Musubu API Key on the Configuration Tab</li>
+          <li>
+            <strong>Step 2.</strong> Configure an Input using a single valid IP Address on the Input Tab</li>
+          <li>
+            <strong>Step 3.</strong> Restart Your Splunk Instance!</li>
+        </ul>
+<hr/>
+<h1>Features:</h1>
+<h3>Musubu IP Threat Data Tooltips</h3>
+<p>Simply enter an lookup definition file name containing IP data ("ip" as the field name) in the "Enter IP Lookup Definition" and click submit.</p>
+<p>The results will show in the table below with mouse over capability for each IP address in the csv lookup file defined.</p>
+<br/>
+<h3>
+          <em>"showipthreatdata"</em> Custom Command</h3>
+<p>Leverage the “showipthreatdata” custom command within the add-on to make direct calls to the Musubu API from the Splunk search view.</p>
+<ul>
+          <li>
+  Head over to the Search tab and type this command showipthreatdata <em>ipv4address_goes_here</em>
+</li>
+        </ul>
+      </html>
     </panel>
   </row>
 </form>

@@ -33,6 +33,7 @@ def collect_events(helper, ew):
     method = 'GET'
     params = {'IP': opt_ip, 'key': global_api_key, 'format': 'json', 'level': 'verbose'}
     helper.log_info(global_api_key)
+
     # The following examples send rest requests to some endpoint.
     response = helper.send_http_request(url, method, parameters=params)
     r_data = response.json()
@@ -40,8 +41,10 @@ def collect_events(helper, ew):
 
     r_status = response.status_code
     if r_status == 200:
-        helper.log_info("musubu api call made successfully...payload below")
-        helper.log_info(r_data)
+        helper.log_info("musubu api call made successfully")
+        # use for debugging helper.log_info(r_data)
+    else:
+        helper.log_info("musubu api call was unsuccessful. Verify you have network connectivity.")
 
     def write_api_key_to_tooltip_file(old_string, new_string):
         filename = os.path.join(os.environ["SPLUNK_HOME"], 'etc', 'apps', 'TA-musubu-for-splunk', 'appserver', 'static', 'musubu_tooltip.js')
@@ -56,7 +59,7 @@ def collect_events(helper, ew):
                     helper.log_info("Writing global API Key to tooltip file: %s" % filename)
                     s = s.replace(old_string, new_string)
                     f.write(s)
-                    
+
     write_api_key_to_tooltip_file('placeholder', global_api_key)
 
     musubu_checkpoint_file = os.path.join(os.environ["SPLUNK_HOME"], 'etc', 'apps', 'TA-musubu-for-splunk', 'bin', 'musubu_checkpoint', 'musubu_checkpoint_file.txt')

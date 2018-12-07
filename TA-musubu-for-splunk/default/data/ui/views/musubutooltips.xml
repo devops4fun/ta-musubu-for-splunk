@@ -1,0 +1,29 @@
+<form stylesheet="musubu_tooltip.css" script="musubu_tooltip.js">
+  <label>Musubu Tooltips</label>
+  <fieldset submitButton="true">
+    <input type="text" token="musubu_ip_lookup" searchWhenChanged="true">
+      <label>Enter IP Lookup Definition</label>
+    </input>
+    <input type="dropdown" token="musubu_ip_lookup">
+      <label>Example Lookup</label>
+      <choice value="ip_test_data">Example IP Lookup Data</choice>
+      <choice value="-">-</choice>
+      <default>ip_test_data</default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <table id="musubu_tbl">
+        <title>Musubu IP Threat Data Tooltip in Splunk</title>
+        <search>
+          <query>| inputlookup $musubu_ip_lookup$</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="count">10</option>
+        <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </table>
+    </panel>
+  </row>
+</form>
