@@ -174,10 +174,9 @@ require([
 
                 //store IP value
                 var message = cell.value;
-                if(ipaddress_value == undefined){
-                    var tip_content = "Uh oh! \nNo API Key Defined on the Configuration Page!\nEnter a valid Musubu API key on the Configuration Page and Retry."
-                }
-
+                // if(ipaddress_value == undefined){
+                //     var tip_content = "Uh oh! \nNo API Key Defined on the Configuration Page!\nEnter a valid Musubu API key on the Configuration Page and Retry."
+                // }
                 var tip = tip_content;
                 if(message.length > 48) { message = message.substring(0,47) + "..." }
 
