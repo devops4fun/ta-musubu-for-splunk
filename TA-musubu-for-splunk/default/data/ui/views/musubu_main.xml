@@ -24,9 +24,9 @@
         <p>Below are the steps required to begin using the app.</p>
         <ul>
           <li>
-            <strong>Step 1.</strong> Enter your Musubu API Key on the Configuration Tab</li>
+            <strong>Step 1.</strong> Enter your Musubu API Key on the Configuration Tab. If you access the internet via a proxy, enter your proxy information on the configuration tab as well.</li>
           <li>
-            <strong>Step 2.</strong> Configure an Input using a single valid IP Address on the Input Tab</li>
+            <strong>Step 2.</strong> Configure an Input using up to 10 valid IP v4 Addresses on the Input Tab</li>
           <li>
             <strong>Step 3.</strong> Restart Your Splunk Instance!</li>
         </ul>
@@ -37,7 +37,7 @@
 <p>The results will show in the table below with mouse over capability for each IP address in the csv lookup file defined.</p>
 <br/>
 <h3>
-          <em>"showipthreatdata"</em> Custom Command</h3>
+          <em>"| showipthreatdata"</em> Custom Command</h3>
 <p>Leverage the “| showipthreatdata” custom command within the add-on to make direct calls to the Musubu API from the Splunk search view. This is a generating command which means it requires a leading pipe symbol "|" as shown.</p>
 <ul>
           <li>
