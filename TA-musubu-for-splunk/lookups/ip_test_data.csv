@@ -1,11 +1,26 @@
-seq,ip,first,last,age,street,city,state,zip,dollar,pick,date
-1,177.91.35.14,Willie,Fleming,23,Bibcij Plaza,Micsupjum,MN,05560,$4769.07,BLUE,05/30/1910
-2,83.15.88.42,Edward,Valdez,60,Vasje Place,Asalabu,NH,68055,$5600.57,BLUE,06/16/1978
-3,117.103.169.90,Lillie,Jefferson,55,Wubza Key,Kufindan,DC,71043,$7530.71,BLUE,03/22/1909
-4,180.211.125.110,Katharine,Gibson,19,Sicac Extension,Wukonomu,SC,93354,$3793.44,BLUE,01/11/2056
-5,134.119.219.71,Alberta,Wilson,42,Kuij View,Cufwovel,TX,45746,$9071.00,WHITE,02/08/2006
-6,151.106.10.155,Gilbert,McLaughlin,23,Tepu Grove,Ejavuwfa,MI,89018,$1304.50,BLUE,10/25/1998
-7,117.191.11.104,Isaac,Clark,35,Etome Trail,Piwwabso,OK,05617,$7021.57,BLUE,06/18/2004
-8,37.187.121.205,Franklin,Roy,43,Vaole Center,Tecawew,MN,75824,$7910.20,BLUE,02/18/2017
-9,134.119.185.101,Louisa,Sherman,42,Vednep Avenue,Fukimwov,NE,12556,$2132.36,YELLOW,09/02/1965
-10,117.191.11.106,Derek,Reyes,36,Zelo Ridge,Nigekoha,FL,45069,$7770.16,YELLOW,09/20/1966
+ip, hostname,user
+177.91.35.14,host1,pswazy
+83.15.88.42,host2,dwashington
+117.103.169.90,host3,bobama1
+180.211.125.110,host4,sorman2
+134.119.219.71,host5,bsledge4
+151.106.10.155,host6,thanks3
+117.191.11.104,host7,jladder4
+37.187.121.205,host8,pjustice4
+134.119.185.101,host9,jtimberlake3
+117.191.11.106,host10,cgrammar3
+118.173.232.5,host11,trump54
+1.20.101.46,host12,mjackson34
+47.75.136.146,host13,jelway5
+81.198.64.128,host14,svaughn3
+176.31.182.86,host15,dglover4
+91.225.97.250,host16,tgive4
+122.115.79.111,host17,zwilliamson3
+188.165.210.135,host18,mjordan23
+216.245.213.134,host19,cbarkley4
+36.255.121.225,host20,ddre34
+88.146.225.11,host21,eminen2
+103.192.229.139,host22,scarter4
+113.11.110.46,host23,mayday3
+149.56.133.16,host24,tysonm3
+177.66.82.65,host25,jcrew1

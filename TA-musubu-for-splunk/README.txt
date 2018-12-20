@@ -60,6 +60,12 @@ Version 1.0.0
 December 5, 2018
 - Initial Release
 
+Version 1.0.1
+December 20, 2018
+- added proxy support - allow users of the app to add their proxy server for usage in each api call to Musubu
+- added support for all CIM compliant IP address fields defined in a CSV lookup definition
+- added support for multiple IPs to be defined within the Input setup
+
 BUILT BY
 Musubu
 CATEGORY & CONTENTS

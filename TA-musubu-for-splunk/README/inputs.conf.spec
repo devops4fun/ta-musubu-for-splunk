@@ -1,2 +1,11 @@
 [musubu_api_data://<name>]
-ip = Enter an IP address to receive Musubu Threat Data
+IP_1 = Enter an IP address to receive Musubu Threat Data (Required)
+IP_2 = Enter an IP address to receive Musubu Threat Data (Optional)
+IP_3 = Enter an IP address to receive Musubu Threat Data (Optional)
+IP_4 = Enter an IP address to receive Musubu Threat Data (Optional)
+IP_5 = Enter an IP address to receive Musubu Threat Data (Optional)
+IP_6 = Enter an IP address to receive Musubu Threat Data (Optional)
+IP_7 = Enter an IP address to receive Musubu Threat Data (Optional)
+IP_8 = Enter an IP address to receive Musubu Threat Data (Optional)
+IP_9 = Enter an IP address to receive Musubu Threat Data (Optional)
+IP_10 = Enter an IP address to receive Musubu Threat Data (Optional)

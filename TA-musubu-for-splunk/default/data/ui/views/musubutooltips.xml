@@ -5,8 +5,9 @@
       <label>Enter IP Lookup Definition</label>
     </input>
     <input type="dropdown" token="musubu_ip_lookup">
-      <label>Example Lookup</label>
-      <choice value="ip_test_data">Example IP Lookup Data</choice>
+      <label>Example Lookups</label>
+      <choice value="ip_test_data">Example 1 - IP Lookup Data by ip</choice>
+      <choice value="ip_test_data_set_src_ip">Example 2 - IP Lookup Data by src_ip</choice>
       <choice value="-">-</choice>
       <default>ip_test_data</default>
     </input>

@@ -113,14 +113,26 @@ require([
 
     var CustomTooltipRenderer = TableView.BaseCellRenderer.extend({
         canRender: function(cell) {
-            return cell.field === 'ip';
+            if(cell.field === 'ip'){
+              return cell.field === 'ip';
+            }else if(cell.field === 'dest_ip'){
+              return cell.field === 'dest_ip'
+            } else if(cell.field === 'src_ip'){
+              return cell.field === 'src_ip'
+            }else if(cell.field === 'dest_translated_ip'){
+              return cell.field === 'dest_translated_ip'
+            }else if(cell.field === 'dvc_ip'){
+              return cell.field === 'dvc_ip'
+            }else if(cell.field === 'src_translated_ip'){
+              return cell.field === 'src_translated_ip'
+            }
         },
         render: function($td, cell) {
             var musubu_ip = cell.value;
             // XHR request to the Musbu API
             var oReq = new XMLHttpRequest();
             var base_url = 'https://api.musubu.io/MusubuAPI/Musubu';
-            var apikey = 'placeholder';
+            var apikey = '41c91a0c9db56d77dde0089945dfd64b';
             var urloptions = 'format=JSON&level=verbose';
             var url = base_url + '?' + 'IP=' + musubu_ip + '&' + 'key=' + apikey + '&' + urloptions;
             oReq.open("GET", url);

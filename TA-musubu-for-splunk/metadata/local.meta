@@ -1,6 +1,6 @@
 [ta_musubu_for_splunk_settings/additional_parameters]
 version = 7.2.1
-modtime = 1544150145.020268000
+modtime = 1544589954.112346000
 
 [views/musubu_main]
 version = 7.2.1
@@ -16,11 +16,6 @@ owner = admin
 version = 7.2.1
 modtime = 1543882445.770611000
 
-[props/musubu_api_data]
-owner = admin
-version = 7.2.1
-modtime = 1544008669.098235000
-
 [inputs/musubu_api_data%3A%2F%2Fmusubu_api_input_stream]
 owner = admin
 version = 7.2.1
@@ -29,3 +24,25 @@ modtime = 1544142282.750701000
 [views/musubutooltips]
 version = 7.2.1
 modtime = 1544156249.329253000
+
+[props/musubu_api_data]
+owner = admin
+version = 7.2.1
+modtime = 1544675138.086678000
+
+[inputs/musubu_api_data%3A%2F%2Fmydemoinput]
+owner = admin
+version = 7.2.1
+modtime = 1545265798.585751000
+
+[props/secure/EXTRACT-ip]
+access = read : [ * ], write : [ admin ]
+owner = admin
+version = 7.2.1
+modtime = 1545315380.310918000
+
+[props/secure/EXTRACT-host%2Cmessage%2Cuser%2Cport%2Cprotocol]
+access = read : [ * ], write : [ admin ]
+owner = admin
+version = 7.2.1
+modtime = 1545315862.678346000

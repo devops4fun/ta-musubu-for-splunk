@@ -46,8 +46,44 @@ class ModInputmusubu_api_data(modinput_wrapper.base_modinput.BaseModInput):
         For customized inputs, hard code the arguments here to hide argument detail from users.
         For other input types, arguments should be get from input_module. Defining new input types could be easier.
         """
-        scheme.add_argument(smi.Argument("ip", title="IP",
-                                         description="Enter an IP address to receive Musubu Threat Data",
+        scheme.add_argument(smi.Argument("IP_1", title="IP - 1",
+                                         description="Enter an IP address to receive Musubu Threat Data (Required)",
+                                         required_on_create=True,
+                                         required_on_edit=False))
+        scheme.add_argument(smi.Argument("IP_2", title="IP - 2",
+                                         description="Enter an IP address to receive Musubu Threat Data (Optional)",
+                                         required_on_create=False,
+                                         required_on_edit=False))
+        scheme.add_argument(smi.Argument("IP_3", title="IP - 3",
+                                         description="Enter an IP address to receive Musubu Threat Data (Optional)",
+                                         required_on_create=False,
+                                         required_on_edit=False))
+        scheme.add_argument(smi.Argument("IP_4", title="IP - 4",
+                                         description="Enter an IP address to receive Musubu Threat Data (Optional)",
+                                         required_on_create=False,
+                                         required_on_edit=False))
+        scheme.add_argument(smi.Argument("IP_5", title="IP - 5",
+                                         description="Enter an IP address to receive Musubu Threat Data (Optional)",
+                                         required_on_create=False,
+                                         required_on_edit=False))
+        scheme.add_argument(smi.Argument("IP_6", title="IP_6",
+                                         description="Enter an IP address to receive Musubu Threat Data (Optional)",
+                                         required_on_create=False,
+                                         required_on_edit=False))
+        scheme.add_argument(smi.Argument("IP_7", title="IP_7",
+                                         description="Enter an IP address to receive Musubu Threat Data (Optional)",
+                                         required_on_create=False,
+                                         required_on_edit=False))
+        scheme.add_argument(smi.Argument("IP_8", title="IP_8",
+                                         description="Enter an IP address to receive Musubu Threat Data (Optional)",
+                                         required_on_create=False,
+                                         required_on_edit=False))
+        scheme.add_argument(smi.Argument("IP_9", title="IP_9",
+                                         description="Enter an IP address to receive Musubu Threat Data (Optional)",
+                                         required_on_create=False,
+                                         required_on_edit=False))
+        scheme.add_argument(smi.Argument("IP_10", title="IP_10",
+                                         description="Enter an IP address to receive Musubu Threat Data (Optional)",
                                          required_on_create=False,
                                          required_on_edit=False))
         return scheme
@@ -87,4 +123,4 @@ class ModInputmusubu_api_data(modinput_wrapper.base_modinput.BaseModInput):
 
 if __name__ == "__main__":
     exitcode = ModInputmusubu_api_data().run(sys.argv)
-sys.exit(exitcode)
+    sys.exit(exitcode)

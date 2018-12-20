@@ -23,32 +23,28 @@ def validate_input(helper, definition):
     #ip = definition.parameters.get('ip', None)
     pass
 
+
 ''' Data Collection Logic'''
 def collect_events(helper, ew):
-    #set some needed variables
+    helper.log_info("musubu data collection has initialized")
+    opt_ip = helper.get_arg('ip')
     global_api_key = helper.get_global_setting("api_key")
     url = 'https://api.musubu.io/MusubuAPI/Musubu?'
     method = 'GET'
-    musubu_checkpoint_file = os.path.join(os.environ["SPLUNK_HOME"], 'etc', 'apps', 'TA-musubu-for-splunk', 'bin', 'musubu_checkpoint', 'musubu_checkpoint_file.txt')
-    helper.log_info(musubu_checkpoint_file)
+    params = {'IP': opt_ip, 'key': global_api_key, 'format': 'json', 'level': 'verbose'}
     helper.log_info(global_api_key)
 
-    def call_musubu(opt_ip, global_api_key, url, method):
-        helper.log_info("musubu data collection has initialized")
-        params = {'IP': opt_ip, 'key': global_api_key, 'format': 'json', 'level': 'verbose'}
+    # The following examples send rest requests to some endpoint.
+    response = helper.send_http_request(url, method, parameters=params)
+    r_data = response.json()
+    event_data = json.dumps(r_data, sort_keys=True, indent=4)
 
-        # make rest api call to the musubu endpoint
-        response = helper.send_http_request(url, method, parameters=params)
-        r_data = response.json()
-        event_data = json.dumps(r_data, sort_keys=True, indent=4)
-
-        r_status = response.status_code
-        if r_status == 200:
-            helper.log_info("musubu api call made successfully")
-            return r_data #return the api response payload in json format
-            # use for debugging helper.log_info(r_data)
-        else:
-            helper.log_info("musubu api call was unsuccessful. Verify you have network connectivity.")
+    r_status = response.status_code
+    if r_status == 200:
+        helper.log_info("musubu api call made successfully")
+        # use for debugging helper.log_info(r_data)
+    else:
+        helper.log_info("musubu api call was unsuccessful. Verify you have network connectivity.")
 
     def write_api_key_to_tooltip_file(old_string, new_string):
         filename = os.path.join(os.environ["SPLUNK_HOME"], 'etc', 'apps', 'TA-musubu-for-splunk', 'appserver', 'static', 'musubu_tooltip.js')
@@ -66,6 +62,9 @@ def collect_events(helper, ew):
 
     write_api_key_to_tooltip_file('placeholder', global_api_key)
 
+    musubu_checkpoint_file = os.path.join(os.environ["SPLUNK_HOME"], 'etc', 'apps', 'TA-musubu-for-splunk', 'bin', 'musubu_checkpoint', 'musubu_checkpoint_file.txt')
+    helper.log_info(musubu_checkpoint_file)
+
     def write_event(data):
         event = helper.new_event(source=helper.get_input_type(), index=helper.get_output_index(), sourcetype=helper.get_sourcetype(), data=data, unbroken=True, done=True)
         ew.write_event(event)
@@ -80,8 +79,7 @@ def collect_events(helper, ew):
         with open(musubu_checkpoint_file, 'a') as file:
             file.writelines(opt_ip + '\n')
 
-    def stream_to_splunk(musubu_checkpoint_file, opt_ip):
-        data = call_musubu(opt_ip, global_api_key, url, method)
+    def stream_to_splunk(musubu_checkpoint_file, data):
         for item in data:
             if checkpoint(musubu_checkpoint_file, str(data['ipaddress'])):
                 continue
@@ -89,11 +87,7 @@ def collect_events(helper, ew):
                 write_to_checkpoint_file(musubu_checkpoint_file, str(data['ipaddress']))
                 write_event(json.dumps(data))
 
-    iplist = ['IP_1', 'IP_2', 'IP_3', 'IP_4', 'IP_5', 'IP_6', 'IP_7', 'IP_8', 'IP_9', 'IP_10']
-    for item in iplist:
-        if item != ' ':
-            opt_ip = helper.get_arg(item)
-            stream_to_splunk(musubu_checkpoint_file, opt_ip)
+    stream_to_splunk(musubu_checkpoint_file, r_data)
 
     '''
     """Implement your data collection logic here"""

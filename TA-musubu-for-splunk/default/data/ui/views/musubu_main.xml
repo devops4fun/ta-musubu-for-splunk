@@ -38,10 +38,10 @@
 <br/>
 <h3>
           <em>"showipthreatdata"</em> Custom Command</h3>
-<p>Leverage the “showipthreatdata” custom command within the add-on to make direct calls to the Musubu API from the Splunk search view.</p>
+<p>Leverage the “| showipthreatdata” custom command within the add-on to make direct calls to the Musubu API from the Splunk search view. This is a generating command which means it requires a leading pipe symbol "|" as shown.</p>
 <ul>
           <li>
-  Head over to the Search tab and type this command showipthreatdata <em>ipv4address_goes_here</em>
+  Head over to the Search tab and type this command: | showipthreatdata <em>ipv4address_goes_here</em>
 </li>
         </ul>
       </html>
