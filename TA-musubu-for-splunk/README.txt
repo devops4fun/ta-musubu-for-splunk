@@ -21,7 +21,7 @@ Purchase a Musubu API “Small Plan” or higher from https://musubu.io/api-pric
 Once you receive your API Key, respond back to our support@musubu.io alias with your Splunk IP address for whitelisting.
 Open the configuration for the Musubu Add-on and set the following configurations:
 Step 1. Enter your Unique API Key as shown below and click “Save”
-Step 2. Create and configure an input using a sample ipv4 address
+Step 2. Create and configure an input using up to 10 ipv4 addresses
 Step 3. Verify the input is functional
 
 Step 1. Enter API Key
@@ -60,11 +60,14 @@ Version 1.0.0
 December 5, 2018
 - Initial Release
 
-Version 1.0.1
+Version 1.0.3
 December 20, 2018
 - added proxy support - allow users of the app to add their proxy server for usage in each api call to Musubu
 - added support for all CIM compliant IP address fields defined in a CSV lookup definition
 - added support for multiple IPs to be defined within the Input setup
+
+Version 1.0.4
+- added a link to request a trial API Key on the Musubu Main and configuration pages
 
 BUILT BY
 Musubu

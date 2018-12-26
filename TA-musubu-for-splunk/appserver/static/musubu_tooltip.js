@@ -80,7 +80,7 @@ require([
   //         // XHR request to the Musbu API
   //         var oReq = new XMLHttpRequest();
   //         var base_url = 'https://api.musubu.io/MusubuAPI/Musubu';
-  //         var apikey = '41c91a0c9db56d77dde0089945dfd64b';
+  //         var apikey = 'placeholder';
   //         var urloptions = 'format=JSON&level=verbose';
   //         var url = base_url + '?' + 'IP=' + rowip + '&' + 'key=' + apikey + '&' + urloptions;
   //         oReq.open("GET", url);
@@ -132,7 +132,7 @@ require([
             // XHR request to the Musbu API
             var oReq = new XMLHttpRequest();
             var base_url = 'https://api.musubu.io/MusubuAPI/Musubu';
-            var apikey = '41c91a0c9db56d77dde0089945dfd64b';
+            var apikey = 'placeholder';
             var urloptions = 'format=JSON&level=verbose';
             var url = base_url + '?' + 'IP=' + musubu_ip + '&' + 'key=' + apikey + '&' + urloptions;
             oReq.open("GET", url);

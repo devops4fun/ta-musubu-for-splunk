@@ -1,472 +1,472 @@
 {
-    "meta": {
-        "version": "1.0.0", 
-        "restRoot": "TA_musubu_for_splunk", 
-        "name": "TA-musubu-for-splunk", 
-        "displayName": "Musubu for Splunk", 
-        "apiVersion": "3.0.0"
-    }, 
     "pages": {
-        "inputs": {
-            "table": {
-                "header": [
-                    {
-                        "field": "name", 
-                        "label": "Name"
-                    }, 
-                    {
-                        "field": "interval", 
-                        "label": "Interval"
-                    }, 
-                    {
-                        "field": "index", 
-                        "label": "Index"
-                    }, 
-                    {
-                        "field": "disabled", 
-                        "label": "Status"
-                    }
-                ], 
-                "moreInfo": [
-                    {
-                        "field": "name", 
-                        "label": "Name"
-                    }, 
-                    {
-                        "field": "interval", 
-                        "label": "Interval"
-                    }, 
-                    {
-                        "field": "index", 
-                        "label": "Index"
-                    }, 
-                    {
-                        "field": "disabled", 
-                        "label": "Status"
-                    }, 
-                    {
-                        "field": "IP_1", 
-                        "label": "IP - 1"
-                    }, 
-                    {
-                        "field": "IP_2", 
-                        "label": "IP - 2"
-                    }, 
-                    {
-                        "field": "IP_3", 
-                        "label": "IP - 3"
-                    }, 
-                    {
-                        "field": "IP_4", 
-                        "label": "IP - 4"
-                    }, 
-                    {
-                        "field": "IP_5", 
-                        "label": "IP - 5"
-                    }, 
-                    {
-                        "field": "IP_6", 
-                        "label": "IP_6"
-                    }, 
-                    {
-                        "field": "IP_7", 
-                        "label": "IP_7"
-                    }, 
-                    {
-                        "field": "IP_8", 
-                        "label": "IP_8"
-                    }, 
-                    {
-                        "field": "IP_9", 
-                        "label": "IP_9"
-                    }, 
-                    {
-                        "field": "IP_10", 
-                        "label": "IP_10"
-                    }
-                ], 
-                "actions": [
-                    "edit", 
-                    "enable", 
-                    "delete", 
-                    "clone"
-                ]
-            }, 
-            "services": [
-                {
-                    "name": "musubu_api_data", 
-                    "entity": [
-                        {
-                            "required": true, 
-                            "type": "text", 
-                            "label": "Name", 
-                            "field": "name", 
-                            "help": "Enter a unique name for the data input", 
-                            "validators": [
-                                {
-                                    "pattern": "^[a-zA-Z]\\w*$", 
-                                    "errorMsg": "Input Name must start with a letter and followed by alphabetic letters, digits or underscores.", 
-                                    "type": "regex"
-                                }, 
-                                {
-                                    "minLength": 1, 
-                                    "errorMsg": "Length of input name should be between 1 and 100", 
-                                    "type": "string", 
-                                    "maxLength": 100
-                                }
-                            ]
-                        }, 
-                        {
-                            "required": true, 
-                            "type": "text", 
-                            "label": "Interval", 
-                            "field": "interval", 
-                            "help": "Time interval of input in seconds.", 
-                            "validators": [
-                                {
-                                    "pattern": "^\\-[1-9]\\d*$|^\\d*$", 
-                                    "errorMsg": "Interval must be an integer.", 
-                                    "type": "regex"
-                                }
-                            ]
-                        }, 
-                        {
-                            "required": true, 
-                            "type": "singleSelect", 
-                            "label": "Index", 
-                            "field": "index", 
-                            "defaultValue": "default", 
-                            "options": {
-                                "blackList": "^_.*$", 
-                                "createSearchChoice": true, 
-                                "endpointUrl": "data/indexes"
-                            }, 
-                            "validators": [
-                                {
-                                    "minLength": 1, 
-                                    "errorMsg": "Length of index name should be between 1 and 80.", 
-                                    "type": "string", 
-                                    "maxLength": 80
-                                }
-                            ]
-                        }, 
-                        {
-                            "required": true, 
-                            "type": "text", 
-                            "label": "IP - 1", 
-                            "field": "IP_1", 
-                            "help": "Enter an IP address to receive Musubu Threat Data (Required)", 
-                            "validators": [
-                                {
-                                    "minLength": 0, 
-                                    "errorMsg": "Max length of text input is 8192", 
-                                    "type": "string", 
-                                    "maxLength": 8192
-                                }
-                            ]
-                        }, 
-                        {
-                            "required": false, 
-                            "type": "text", 
-                            "label": "IP - 2", 
-                            "field": "IP_2", 
-                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
-                            "validators": [
-                                {
-                                    "minLength": 0, 
-                                    "errorMsg": "Max length of text input is 8192", 
-                                    "type": "string", 
-                                    "maxLength": 8192
-                                }
-                            ]
-                        }, 
-                        {
-                            "required": false, 
-                            "type": "text", 
-                            "label": "IP - 3", 
-                            "field": "IP_3", 
-                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
-                            "validators": [
-                                {
-                                    "minLength": 0, 
-                                    "errorMsg": "Max length of text input is 8192", 
-                                    "type": "string", 
-                                    "maxLength": 8192
-                                }
-                            ]
-                        }, 
-                        {
-                            "required": false, 
-                            "type": "text", 
-                            "label": "IP - 4", 
-                            "field": "IP_4", 
-                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
-                            "validators": [
-                                {
-                                    "minLength": 0, 
-                                    "errorMsg": "Max length of text input is 8192", 
-                                    "type": "string", 
-                                    "maxLength": 8192
-                                }
-                            ]
-                        }, 
-                        {
-                            "required": false, 
-                            "type": "text", 
-                            "label": "IP - 5", 
-                            "field": "IP_5", 
-                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
-                            "validators": [
-                                {
-                                    "minLength": 0, 
-                                    "errorMsg": "Max length of text input is 8192", 
-                                    "type": "string", 
-                                    "maxLength": 8192
-                                }
-                            ]
-                        }, 
-                        {
-                            "required": false, 
-                            "type": "text", 
-                            "label": "IP_6", 
-                            "field": "IP_6", 
-                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
-                            "validators": [
-                                {
-                                    "minLength": 0, 
-                                    "errorMsg": "Max length of text input is 8192", 
-                                    "type": "string", 
-                                    "maxLength": 8192
-                                }
-                            ]
-                        }, 
-                        {
-                            "required": false, 
-                            "type": "text", 
-                            "label": "IP_7", 
-                            "field": "IP_7", 
-                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
-                            "validators": [
-                                {
-                                    "minLength": 0, 
-                                    "errorMsg": "Max length of text input is 8192", 
-                                    "type": "string", 
-                                    "maxLength": 8192
-                                }
-                            ]
-                        }, 
-                        {
-                            "required": false, 
-                            "type": "text", 
-                            "label": "IP_8", 
-                            "field": "IP_8", 
-                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
-                            "validators": [
-                                {
-                                    "minLength": 0, 
-                                    "errorMsg": "Max length of text input is 8192", 
-                                    "type": "string", 
-                                    "maxLength": 8192
-                                }
-                            ]
-                        }, 
-                        {
-                            "required": false, 
-                            "type": "text", 
-                            "label": "IP_9", 
-                            "field": "IP_9", 
-                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
-                            "validators": [
-                                {
-                                    "minLength": 0, 
-                                    "errorMsg": "Max length of text input is 8192", 
-                                    "type": "string", 
-                                    "maxLength": 8192
-                                }
-                            ]
-                        }, 
-                        {
-                            "required": false, 
-                            "type": "text", 
-                            "label": "IP_10", 
-                            "field": "IP_10", 
-                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
-                            "validators": [
-                                {
-                                    "minLength": 0, 
-                                    "errorMsg": "Max length of text input is 8192", 
-                                    "type": "string", 
-                                    "maxLength": 8192
-                                }
-                            ]
-                        }
-                    ], 
-                    "title": "musubu_api_data"
-                }
-            ], 
-            "description": "Manage your data inputs", 
-            "title": "Inputs"
-        }, 
         "configuration": {
             "tabs": [
                 {
+                    "entity": [
+                        {
+                            "type": "checkbox", 
+                            "label": "Enable", 
+                            "field": "proxy_enabled"
+                        }, 
+                        {
+                            "type": "singleSelect", 
+                            "label": "Proxy Type", 
+                            "defaultValue": "http", 
+                            "field": "proxy_type", 
+                            "options": {
+                                "autoCompleteFields": [
+                                    {
+                                        "value": "http", 
+                                        "label": "http"
+                                    }, 
+                                    {
+                                        "value": "socks4", 
+                                        "label": "socks4"
+                                    }, 
+                                    {
+                                        "value": "socks5", 
+                                        "label": "socks5"
+                                    }
+                                ], 
+                                "disableSearch": true
+                            }
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "Host", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 4096, 
+                                    "errorMsg": "Max host length is 4096", 
+                                    "minLength": 0
+                                }
+                            ], 
+                            "field": "proxy_url"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "Port", 
+                            "validators": [
+                                {
+                                    "type": "number", 
+                                    "range": [
+                                        1, 
+                                        65535
+                                    ]
+                                }
+                            ], 
+                            "field": "proxy_port"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "Username", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 50, 
+                                    "errorMsg": "Max length of username is 50", 
+                                    "minLength": 0
+                                }
+                            ], 
+                            "field": "proxy_username"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "Password", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "errorMsg": "Max length of password is 8192", 
+                                    "minLength": 0
+                                }
+                            ], 
+                            "field": "proxy_password", 
+                            "encrypted": true
+                        }, 
+                        {
+                            "type": "checkbox", 
+                            "label": "Remote DNS resolution", 
+                            "field": "proxy_rdns"
+                        }
+                    ], 
                     "options": {
                         "saveValidator": "function(formData) { if(!formData.proxy_enabled || formData.proxy_enabled === '0') {return true; } if(!formData.proxy_url) { return 'Proxy Host can not be empty'; } if(!formData.proxy_port) { return 'Proxy Port can not be empty'; } return true; }"
                     }, 
                     "name": "proxy", 
-                    "entity": [
-                        {
-                            "field": "proxy_enabled", 
-                            "type": "checkbox", 
-                            "label": "Enable"
-                        }, 
-                        {
-                            "field": "proxy_type", 
-                            "defaultValue": "http", 
-                            "options": {
-                                "autoCompleteFields": [
-                                    {
-                                        "label": "http", 
-                                        "value": "http"
-                                    }, 
-                                    {
-                                        "label": "socks4", 
-                                        "value": "socks4"
-                                    }, 
-                                    {
-                                        "label": "socks5", 
-                                        "value": "socks5"
-                                    }
-                                ], 
-                                "disableSearch": true
-                            }, 
-                            "type": "singleSelect", 
-                            "label": "Proxy Type"
-                        }, 
-                        {
-                            "field": "proxy_url", 
-                            "validators": [
-                                {
-                                    "minLength": 0, 
-                                    "errorMsg": "Max host length is 4096", 
-                                    "type": "string", 
-                                    "maxLength": 4096
-                                }
-                            ], 
-                            "type": "text", 
-                            "label": "Host"
-                        }, 
-                        {
-                            "field": "proxy_port", 
-                            "validators": [
-                                {
-                                    "range": [
-                                        1, 
-                                        65535
-                                    ], 
-                                    "type": "number"
-                                }
-                            ], 
-                            "type": "text", 
-                            "label": "Port"
-                        }, 
-                        {
-                            "field": "proxy_username", 
-                            "validators": [
-                                {
-                                    "minLength": 0, 
-                                    "errorMsg": "Max length of username is 50", 
-                                    "type": "string", 
-                                    "maxLength": 50
-                                }
-                            ], 
-                            "type": "text", 
-                            "label": "Username"
-                        }, 
-                        {
-                            "field": "proxy_password", 
-                            "encrypted": true, 
-                            "validators": [
-                                {
-                                    "minLength": 0, 
-                                    "errorMsg": "Max length of password is 8192", 
-                                    "type": "string", 
-                                    "maxLength": 8192
-                                }
-                            ], 
-                            "type": "text", 
-                            "label": "Password"
-                        }, 
-                        {
-                            "field": "proxy_rdns", 
-                            "type": "checkbox", 
-                            "label": "Remote DNS resolution"
-                        }
-                    ], 
                     "title": "Proxy"
                 }, 
                 {
-                    "name": "logging", 
                     "entity": [
                         {
-                            "field": "loglevel", 
+                            "type": "singleSelect", 
+                            "label": "Log level", 
                             "defaultValue": "INFO", 
+                            "field": "loglevel", 
                             "options": {
                                 "autoCompleteFields": [
                                     {
-                                        "label": "DEBUG", 
-                                        "value": "DEBUG"
+                                        "value": "DEBUG", 
+                                        "label": "DEBUG"
                                     }, 
                                     {
-                                        "label": "INFO", 
-                                        "value": "INFO"
+                                        "value": "INFO", 
+                                        "label": "INFO"
                                     }, 
                                     {
-                                        "label": "WARNING", 
-                                        "value": "WARNING"
+                                        "value": "WARNING", 
+                                        "label": "WARNING"
                                     }, 
                                     {
-                                        "label": "ERROR", 
-                                        "value": "ERROR"
+                                        "value": "ERROR", 
+                                        "label": "ERROR"
                                     }, 
                                     {
-                                        "label": "CRITICAL", 
-                                        "value": "CRITICAL"
+                                        "value": "CRITICAL", 
+                                        "label": "CRITICAL"
                                     }
                                 ], 
                                 "disableSearch": true
-                            }, 
-                            "type": "singleSelect", 
-                            "label": "Log level"
+                            }
                         }
                     ], 
+                    "name": "logging", 
                     "title": "Logging"
                 }, 
                 {
-                    "name": "additional_parameters", 
                     "entity": [
                         {
-                            "required": true, 
                             "type": "text", 
                             "label": "API KEY", 
-                            "field": "api_key", 
                             "defaultValue": "", 
-                            "help": "Enter Your Unique Musubu API Key (Required)", 
+                            "required": true, 
+                            "help": "Enter Your Unique Musubu API Key (Required).\n***Request trial key from support@musubu.io***", 
                             "validators": [
                                 {
-                                    "minLength": 0, 
-                                    "errorMsg": "Max length of text input is 8192", 
                                     "type": "string", 
-                                    "maxLength": 8192
+                                    "maxLength": 8192, 
+                                    "errorMsg": "Max length of text input is 8192", 
+                                    "minLength": 0
                                 }
-                            ]
+                            ], 
+                            "field": "api_key"
                         }
                     ], 
+                    "name": "additional_parameters", 
                     "title": "Add-on Settings"
                 }
             ], 
             "description": "Set up your add-on", 
             "title": "Configuration"
+        }, 
+        "inputs": {
+            "description": "Manage your data inputs", 
+            "services": [
+                {
+                    "entity": [
+                        {
+                            "type": "text", 
+                            "label": "Name", 
+                            "validators": [
+                                {
+                                    "type": "regex", 
+                                    "errorMsg": "Input Name must start with a letter and followed by alphabetic letters, digits or underscores.", 
+                                    "pattern": "^[a-zA-Z]\\w*$"
+                                }, 
+                                {
+                                    "type": "string", 
+                                    "maxLength": 100, 
+                                    "errorMsg": "Length of input name should be between 1 and 100", 
+                                    "minLength": 1
+                                }
+                            ], 
+                            "help": "Enter a unique name for the data input", 
+                            "field": "name", 
+                            "required": true
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "Interval", 
+                            "validators": [
+                                {
+                                    "type": "regex", 
+                                    "errorMsg": "Interval must be an integer.", 
+                                    "pattern": "^\\-[1-9]\\d*$|^\\d*$"
+                                }
+                            ], 
+                            "help": "Time interval of input in seconds.", 
+                            "field": "interval", 
+                            "required": true
+                        }, 
+                        {
+                            "type": "singleSelect", 
+                            "label": "Index", 
+                            "defaultValue": "default", 
+                            "required": true, 
+                            "options": {
+                                "createSearchChoice": true, 
+                                "blackList": "^_.*$", 
+                                "endpointUrl": "data/indexes"
+                            }, 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 80, 
+                                    "errorMsg": "Length of index name should be between 1 and 80.", 
+                                    "minLength": 1
+                                }
+                            ], 
+                            "field": "index"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "IP - 1", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "errorMsg": "Max length of text input is 8192", 
+                                    "minLength": 0
+                                }
+                            ], 
+                            "help": "Enter an IP address to receive Musubu Threat Data (Required)", 
+                            "field": "IP_1", 
+                            "required": true
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "IP - 2", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "errorMsg": "Max length of text input is 8192", 
+                                    "minLength": 0
+                                }
+                            ], 
+                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
+                            "field": "IP_2", 
+                            "required": false
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "IP - 3", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "errorMsg": "Max length of text input is 8192", 
+                                    "minLength": 0
+                                }
+                            ], 
+                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
+                            "field": "IP_3", 
+                            "required": false
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "IP - 4", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "errorMsg": "Max length of text input is 8192", 
+                                    "minLength": 0
+                                }
+                            ], 
+                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
+                            "field": "IP_4", 
+                            "required": false
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "IP - 5", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "errorMsg": "Max length of text input is 8192", 
+                                    "minLength": 0
+                                }
+                            ], 
+                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
+                            "field": "IP_5", 
+                            "required": false
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "IP_6", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "errorMsg": "Max length of text input is 8192", 
+                                    "minLength": 0
+                                }
+                            ], 
+                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
+                            "field": "IP_6", 
+                            "required": false
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "IP_7", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "errorMsg": "Max length of text input is 8192", 
+                                    "minLength": 0
+                                }
+                            ], 
+                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
+                            "field": "IP_7", 
+                            "required": false
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "IP_8", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "errorMsg": "Max length of text input is 8192", 
+                                    "minLength": 0
+                                }
+                            ], 
+                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
+                            "field": "IP_8", 
+                            "required": false
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "IP_9", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "errorMsg": "Max length of text input is 8192", 
+                                    "minLength": 0
+                                }
+                            ], 
+                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
+                            "field": "IP_9", 
+                            "required": false
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "IP_10", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "errorMsg": "Max length of text input is 8192", 
+                                    "minLength": 0
+                                }
+                            ], 
+                            "help": "Enter an IP address to receive Musubu Threat Data (Optional)", 
+                            "field": "IP_10", 
+                            "required": false
+                        }
+                    ], 
+                    "name": "musubu_api_data", 
+                    "title": "musubu_api_data"
+                }
+            ], 
+            "title": "Inputs", 
+            "table": {
+                "actions": [
+                    "edit", 
+                    "enable", 
+                    "delete", 
+                    "clone"
+                ], 
+                "header": [
+                    {
+                        "label": "Name", 
+                        "field": "name"
+                    }, 
+                    {
+                        "label": "Interval", 
+                        "field": "interval"
+                    }, 
+                    {
+                        "label": "Index", 
+                        "field": "index"
+                    }, 
+                    {
+                        "label": "Status", 
+                        "field": "disabled"
+                    }
+                ], 
+                "moreInfo": [
+                    {
+                        "label": "Name", 
+                        "field": "name"
+                    }, 
+                    {
+                        "label": "Interval", 
+                        "field": "interval"
+                    }, 
+                    {
+                        "label": "Index", 
+                        "field": "index"
+                    }, 
+                    {
+                        "label": "Status", 
+                        "field": "disabled"
+                    }, 
+                    {
+                        "label": "IP - 1", 
+                        "field": "IP_1"
+                    }, 
+                    {
+                        "label": "IP - 2", 
+                        "field": "IP_2"
+                    }, 
+                    {
+                        "label": "IP - 3", 
+                        "field": "IP_3"
+                    }, 
+                    {
+                        "label": "IP - 4", 
+                        "field": "IP_4"
+                    }, 
+                    {
+                        "label": "IP - 5", 
+                        "field": "IP_5"
+                    }, 
+                    {
+                        "label": "IP_6", 
+                        "field": "IP_6"
+                    }, 
+                    {
+                        "label": "IP_7", 
+                        "field": "IP_7"
+                    }, 
+                    {
+                        "label": "IP_8", 
+                        "field": "IP_8"
+                    }, 
+                    {
+                        "label": "IP_9", 
+                        "field": "IP_9"
+                    }, 
+                    {
+                        "label": "IP_10", 
+                        "field": "IP_10"
+                    }
+                ]
+            }
         }
+    }, 
+    "meta": {
+        "version": "1.0.2", 
+        "displayName": "Musubu for Splunk", 
+        "apiVersion": "3.0.0", 
+        "name": "TA-musubu-for-splunk", 
+        "restRoot": "TA_musubu_for_splunk"
     }
 }
